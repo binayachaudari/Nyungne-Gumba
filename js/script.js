@@ -1,14 +1,13 @@
+const burger = document.querySelector('.burger')
+const nav = document.querySelector('.nav__links');
+
+const navLinks = document.querySelectorAll('.nav__links li');
+const burgerLines = burger.querySelectorAll('div');
+
 /**
  * Navbar Function
  */
-
 const navbar = () => {
-  const burger = document.querySelector('.burger')
-  const nav = document.querySelector('.nav__links');
-
-  const navLinks = document.querySelectorAll('.nav__links li');
-  const burgerLines = burger.querySelectorAll('div');
-
   burger.addEventListener('click', (e) => {
     burgerLines.forEach(line => line.style.transition = 'all ease 0.5s');
     nav.style.transition = 'all ease 0.5s';
@@ -16,27 +15,49 @@ const navbar = () => {
     nav.style.MozTransition = 'all ease 0.5s';
 
     burger.classList.toggle('toggle');
-    nav.classList.toggle('nav__active')
+    nav.classList.toggle('nav__active');
   });
 
   navLinks.forEach((item, index) => {
     item.addEventListener('click', (e) => {
-      let activeNav = documen.querySelector('.nav__links li.active');
+      let activeNav = document.querySelector('.nav__links li.active');
       if (activeNav) {
         activeNav.classList.remove('active')
       }
-      burger.addEventListener('click', (e) => {
-        activeNav = document.querySelector('li.active');
-        if (activeNav) {
-          activeNav.classList.remove('active');
-        }
-      })
 
-      navItem.classList.add('active');
+      item.classList.add('active');
+      nav.classList.toggle('nav__active');
+      burger.classList.toggle('toggle');
     });
   })
-
 }
+
+/**
+ * Smooth Scrolling
+ */
+
+// const smoothscroll = () => {
+//   $('.smoothscroll').on('click', function (e) {
+//     var target = this.hash,
+//       $target = $(target);
+
+//     e.preventDefault();
+//     e.stopPropagation();
+
+//     $('html, body').stop().animate({
+//       'scrollTop': $target.offset().top - 200
+//     }, cfg.scrollDuration, 'swing').promise().done(function () {
+
+//       // check if menu is open
+//       if ($('nav__links').hasClass('nav__active')) {
+//         nav.classList.toggle('nav__active');
+//         burger.classList.toggle('toggle');
+//       }
+
+//       window.location.hash = target;
+//     });
+//   });
+// }
 
 
 // Initialize and add the map
@@ -51,3 +72,4 @@ function initMap() {
 }
 
 navbar()
+// smoothscroll();
