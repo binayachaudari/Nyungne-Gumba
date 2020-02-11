@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Akronim&display=swap');
 
 :root{
   --primary-color: #FF601B;
@@ -12,6 +13,15 @@
 }
 
 .light-text{
+  color: var(--light-color);
+}
+
+.light-blue-text{
+  color: var(--light-blue);
+}
+
+.bg-secondary{
+  background-color: var(--secondary-color);
   color: var(--light-color);
 }
 
@@ -50,9 +60,10 @@ header{
 }
 
 .logo a{
+  font-family: 'Akronim',Arial, Helvetica, sans-serif;
   color: var(--light-color);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .nav__links{
@@ -204,7 +215,7 @@ transform: translateX(100%);
   margin-bottom: 24px;
 }
 
-.section__subtitle{
+.s__home .section__subtitle{
   font-size: 20px;
   line-height: 120%;
   margin-bottom: 24px;
@@ -226,4 +237,61 @@ transform: translateX(100%);
   background: var(--light-blue);
   color: var(--light-color);
   font-weight: 600;
+}
+
+section{
+  padding: 60px 0;
+}
+
+section .section__title{
+  font-size: 26px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+section .section__subtitle{
+  font-size: 22px;
+  line-height: 120%;
+  margin-bottom: 24px;
+}
+
+section .section__desc{
+  font-size: 18px;
+  line-height: 120%;
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.s__help {
+  text-align: center;
+}
+.help__item{
+  padding: 14px 0;
+}
+
+.help__icon{
+  color: var(--light-blue);
+  display: inline-block;
+  position: relative;
+  background-color: rgba(245, 249, 252,0.3);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.help__icon img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 36px;
+}
+
+.help__title{
+  padding:8px;
+  font-size: 22px;
+}
+
+.help__text .section__desc{
+  text-align: center;
 }
