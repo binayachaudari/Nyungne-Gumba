@@ -1,75 +1,81 @@
-const burger = document.querySelector('.burger')
+const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav__links');
 
 const navLinks = document.querySelectorAll('.nav__links li');
 const burgerLines = burger.querySelectorAll('div');
+
+const smoothScrollElements = document.querySelectorAll('.smoothscroll');
 
 /**
  * Navbar Function
  */
 const navbar = () => {
   burger.addEventListener('click', (e) => {
+    e.preventDefault();
+
     burgerLines.forEach(line => line.style.transition = 'all ease 0.5s');
+
     nav.style.transition = 'all ease 0.5s';
     nav.style.WebkitTransition = 'all ease 0.5s';
     nav.style.MozTransition = 'all ease 0.5s';
 
     burger.classList.toggle('toggle');
     nav.classList.toggle('nav__active');
+
   });
 
   navLinks.forEach((item, index) => {
     item.addEventListener('click', (e) => {
       let activeNav = document.querySelector('.nav__links li.active');
+
       if (activeNav) {
-        activeNav.classList.remove('active')
+        activeNav.classList.remove('active');
       }
 
       item.classList.add('active');
+
       nav.classList.toggle('nav__active');
+
       burger.classList.toggle('toggle');
+
     });
-  })
+  });
 }
 
 /**
  * Smooth Scrolling
  */
+const smoothScroll = () => {
 
-// const smoothscroll = () => {
-//   $('.smoothscroll').on('click', function (e) {
-//     var target = this.hash,
-//       $target = $(target);
+  smoothScrollElements.forEach((element) => {
 
-//     e.preventDefault();
-//     e.stopPropagation();
+    element.addEventListener('click', (e) => {
+      e.preventDefault();
 
-//     $('html, body').stop().animate({
-//       'scrollTop': $target.offset().top - 200
-//     }, cfg.scrollDuration, 'swing').promise().done(function () {
+      let targetID = e.target.getAttribute('href');
 
-//       // check if menu is open
-//       if ($('nav__links').hasClass('nav__active')) {
-//         nav.classList.toggle('nav__active');
-//         burger.classList.toggle('toggle');
-//       }
+      window.scrollTo({
+        top: targetID === '#' ? 0 : document.querySelector(targetID).offsetTop - 70,
+        behavior: 'smooth'
+      });
 
-//       window.location.hash = target;
-//     });
-//   });
-// }
+    });
+  });
+}
 
 
 // Initialize and add the map
 function initMap() {
   // The location of Bouddha
-  var stupa = { lat: 27.7222921, lng: 85.3552028 };
+  let stupa = { lat: 27.7222921, lng: 85.3552028 };
   // The map, centered at Bouddha
-  var map = new google.maps.Map(
+  let map = new google.maps.Map(
     document.getElementById('map'), { zoom: 14, center: stupa });
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({ position: stupa, map: map });
+  let marker = new google.maps.Marker({ position: stupa, map: map });
 }
 
-navbar()
-// smoothscroll();
+
+
+navbar();
+smoothScroll();
