@@ -59,10 +59,16 @@ const smoothScroll = () => {
 
       let targetID = e.target.getAttribute('href');
 
-      window.scrollTo({
-        top: targetID === '#' ? 0 : document.querySelector(targetID).offsetTop - 70,
-        behavior: 'smooth'
-      });
+      //JAVASCRIPT IMPLEMENTATION (not supported on ios Devices)
+      // window.scrollTo({
+      //   top: targetID === '#' ? 0 : document.querySelector(targetID).offsetTop - 70,
+      //   behavior: 'smooth'
+      // });
+
+      //JQUERY IMPLEMENTATION 
+      $('html, body').stop().animate({
+        scrollTop: targetID === '#' ? 0 : $(targetID).offset().top - 70
+      }, 800)
 
     });
   });
