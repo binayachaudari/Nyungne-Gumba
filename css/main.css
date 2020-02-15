@@ -139,6 +139,12 @@ header{
   float: right;
 }
 
+.burger::after{
+  content: '';
+  clear: both;
+  display: table;
+}
+
 .burger div {
   width: 20px;
   height: 2px;
@@ -220,6 +226,7 @@ header{
   font-size: 20px;
   line-height: 120%;
   margin-bottom: 24px;
+  font-weight: 400;
 }
 
 .btn{
@@ -253,6 +260,7 @@ section .section__subtitle{
   font-size: 20px;
   line-height: 120%;
   margin-bottom: 24px;
+  font-weight: 600;
 }
 
 section .section__desc{
@@ -260,6 +268,10 @@ section .section__desc{
   line-height: 120%;
   margin-bottom: 24px;
   text-align: justify;
+}
+
+.s__about__image{
+  display: none;
 }
 
 .s__help {
@@ -455,6 +467,10 @@ footer .container{
   width: 26px;
 } 
 
+.social__icons ul li a{
+  display: inline-block;
+}
+
 .social__icons ul li:first-child{
   padding-left: 0;
 }
@@ -579,7 +595,211 @@ footer .container{
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (orientation: portrait)  {}
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 60em;
+    margin: 0 auto;
+  }
+
+  .body{
+    text-align: left;
+  }
+
+  .burger{
+    display: none;
+  }
+
+  header{
+    background: transparent;
+  }
+
+  header.opaque{
+    background: var(--light-color);
+  }
+
+  .opaque .logo a{
+    color: var(--primary-color);
+  }
+
+  .opaque .nav__links ul li a{
+    color: rgba(36, 32, 56,0.7);
+  }
+
+  .opaque .nav__links ul li.active a, .opaque .nav__links .btn__donate{
+    color: rgba(36, 32, 56, 1);
+  }
+
+  header .container{
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo a{
+    font-size: 30px;
+  }
+
+  .logo{
+    flex: 1;
+  }
+  
+  .nav__links{
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    align-items: center;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    background: transparent;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: visible;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    font-weight: 600;
+  }
+
+  .nav__links ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 40px;
+    opacity: 1;
+  }
+
+  .nav__links ul li a{
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .nav__links a.btn{
+    opacity: 1;
+    font-size: 14px;
+  }
+
+  section{
+    padding: 100px 0;
+  }
+
+  .s__about__image{
+    display: none;
+  }
+
+  .home-content__main{
+    transform: translate(-35%,-50%);
+  }
+
+  .home-content__main h2{
+    font-size: 52px;
+    width: 70%;
+  }
+
+  .s__home .section__subtitle{
+    font-size: 24px;
+    margin-bottom: 32px;
+    width: 60%;
+  }
+
+  .btn{
+    font-size: 20px;
+    padding: 10px 16px;
+  }
+  
+  .s__about .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8%;
+    align-items: center;
+  }
+  
+  .s__about__image{
+    display: inline-block;
+  }
+
+  .help__lists, .events__list{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  .help__item, .event__item{
+    width: 30%;
+  }
+
+  section .section__title{
+    margin-bottom: 30px;
+    font-size: 32px;
+  }
+
+  .event__details ul li{
+    margin-bottom: 12px;
+  }
+
+  .s__events .btn{
+    margin: 0;
+  }
+
+  .event__item{
+    text-align: left;
+  }
+
+  .s__cta .container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .cta-text, .copyright__info{
+    margin: 0;
+  }
+
+  .s__map{
+    margin-bottom: 32px;
+  }
+
+  .contact-form__wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-details{
+    width: 50%;
+  }
+
+  .btn__submit{
+    left: 100%;
+    transform: translateX(-100%);
+  }
+
+  footer .container{
+    flex-direction: row;
+  }
+
+  .copyright__info{
+    font-size: 20px;
+  }
+
+  .facebook{
+    width: 13px;
+  }
+  
+  .twitter{
+    width: 30px;
+  }
+  
+  .instagram, .dribbble{
+    width: 24px;
+  } 
+
+  .social__icons ul li{
+    padding-left: 22px;
+  }
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) and (orientation: portrait) {}
+@media only screen and (min-width: 1200px) {
+  .container{
+    max-width: 73.125em;
+    padding: 0;
+  }
+}
