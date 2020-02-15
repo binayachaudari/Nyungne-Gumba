@@ -840,6 +840,10 @@ footer .container{
     font-size: 32px;
   }
 
+  .s__cta{
+    padding: 40px 0;
+  }
+
   .event__details ul li{
     margin-bottom: 12px;
   }
