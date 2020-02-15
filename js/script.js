@@ -11,6 +11,36 @@ const smoothScrollElements = document.querySelectorAll('.smoothscroll');
 let doc = document.documentElement;
 doc.setAttribute('data-useragent', navigator.userAgent);
 
+
+/**
+ * isLoaded
+ */
+
+let isLoaded = () => {
+  let html = document.querySelector('html');
+  html.classList.add('s__preload')
+
+  window.addEventListener('load', (e) => {
+    html.classList.remove('s__preload');
+    html.classList.add('s__loaded');
+  });
+
+};
+
+/**
+ * Animate on scroll
+ */
+let s__AOS = () => {
+  AOS.init({
+    offset: 200,
+    duration: 600,
+    easing: 'ease-in-sine',
+    delay: 300,
+    once: false,
+    disable: 'mobile'
+  });
+};
+
 /**
  * Navbar Function
  */
@@ -124,6 +154,8 @@ function initMap() {
 
 
 
+isLoaded();
+s__AOS();
 navbar();
 smoothScroll();
-menuOnScrolldown();
+menuOnScrolldown(); //ScrollSpy 
