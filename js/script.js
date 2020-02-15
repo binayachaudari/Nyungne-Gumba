@@ -36,7 +36,7 @@ let s__AOS = () => {
     duration: 600,
     easing: 'ease-in-sine',
     delay: 300,
-    once: false,
+    once: true,
     disable: 'mobile'
   });
 };
