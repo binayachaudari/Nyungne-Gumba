@@ -8,7 +8,7 @@ const smoothScrollElements = document.querySelectorAll('.smoothscroll');
 
 // Add the User Agent to the <html>
 // will be used for IE10 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0))
-var doc = document.documentElement;
+let doc = document.documentElement;
 doc.setAttribute('data-useragent', navigator.userAgent);
 
 /**
@@ -75,6 +75,42 @@ const smoothScroll = () => {
 }
 
 
+/* 
+ * Menu on Scrolldown
+ */
+let menuOnScrolldown = () => {
+
+  let menuTrigger = document.querySelector('header');
+  menuTrigger.style.transition = 'all ease 0.5s'
+
+  //Change NavBar on Scroll
+  window.addEventListener('scroll', (e) => {
+    window.scrollY > 50 ? menuTrigger.classList.add('opaque') : menuTrigger.classList.remove('opaque');
+
+    //ScrollSpy JS Implementation 
+    let scrollSpyItems = document.querySelectorAll('.nav__links ul li a')
+    let fromTop = window.scrollY
+    scrollSpyItems.forEach(link => {
+
+      try {
+        let section = document.querySelector(link.hash);
+        if (section.offsetTop <= fromTop + 70 && section.offsetTop + section.offsetHeight > fromTop + 70) {
+          link.parentElement.classList.add('active')
+        }
+        else {
+          link.parentElement.classList.remove('active');
+        }
+      } catch (error) {
+        // statements to handle any exceptions
+      }
+
+    }); //End of Event Listener
+
+  }); //End of forEach
+}; //End of menuOnScroll Function
+
+
+
 // Initialize and add the map
 function initMap() {
   // The location of Bouddha
@@ -90,3 +126,4 @@ function initMap() {
 
 navbar();
 smoothScroll();
+menuOnScrolldown();
