@@ -797,6 +797,9 @@ footer .container{
   }
 }
 
+  .event__title{
+    margin-bottom: 10px;
+  }
 
   .home-content__main h2{
     font-size: 52px;
